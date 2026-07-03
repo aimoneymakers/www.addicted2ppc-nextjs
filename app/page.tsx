@@ -5,6 +5,7 @@ import ContactForm from '@/components/ContactForm';
 import {
   auditPoints, certifications, clientLogos, featuredOn, howItWorks, site, whyLosingMoney,
 } from '@/lib/data/site';
+/* eslint-disable @next/next/no-img-element */
 
 export const metadata: Metadata = {
   title: 'Pay Per Click Marketing Agency in Burgess Hill',
@@ -125,9 +126,17 @@ export default function HomePage() {
       <section className="border-y border-ink-line/10 bg-white">
         <div className="container-page py-10">
           <p className="eyebrow mb-6">Certified Pay Per Click experts</p>
-          <div className="flex flex-wrap gap-x-10 gap-y-4">
+          <div className="flex flex-wrap items-center gap-x-12 gap-y-6">
             {certifications.map((c) => (
-              <span key={c} className="font-display text-lg text-ink/40">{c}</span>
+              <img
+                key={c.name}
+                src={c.logo}
+                alt={c.name}
+                width={140}
+                height={44}
+                loading="lazy"
+                className="h-10 w-auto object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition"
+              />
             ))}
           </div>
         </div>
@@ -161,8 +170,18 @@ export default function HomePage() {
       <section className="bg-paper py-10 border-y border-ink-line/10">
         <div className="container-page">
           <p className="eyebrow mb-6">As featured on</p>
-          <div className="flex flex-wrap gap-x-10 gap-y-3 text-ink/40 font-display text-base">
-            {featuredOn.map((f) => <span key={f}>{f}</span>)}
+          <div className="flex flex-wrap items-center gap-x-12 gap-y-6">
+            {featuredOn.map((f) => (
+              <img
+                key={f.name}
+                src={f.logo}
+                alt={f.name}
+                width={130}
+                height={40}
+                loading="lazy"
+                className="h-9 w-auto object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition"
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -189,9 +208,18 @@ export default function HomePage() {
       {/* Clients */}
       <section className="py-20 md:py-28 container-page">
         <p className="eyebrow mb-8">Clients our team has worked with</p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10 items-center">
           {clientLogos.map((c) => (
-            <div key={c} className="font-display text-lg md:text-xl text-ink/35 text-center">{c}</div>
+            <div key={c.name} className="flex justify-center">
+              <img
+                src={c.logo}
+                alt={c.name}
+                width={140}
+                height={50}
+                loading="lazy"
+                className="h-10 w-auto object-contain grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition"
+              />
+            </div>
           ))}
         </div>
       </section>
