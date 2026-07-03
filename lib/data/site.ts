@@ -34,14 +34,38 @@ export const stats = [
   { value: '30+', label: 'Industries served' },
 ];
 
+const UP = 'https://www.addicted2ppc.com/wp-content/uploads/2019/06';
+
 export const clientLogos = [
-  'TK Maxx', 'Western Union', 'Alinta Energy', 'Giffgaff', 'Jax Tyres', 'Co-op',
-  'Fujitsu', 'Pandora', 'Harley-Davidson', 'Santander', 'Apple', 'Petbarn',
+  { name: 'TK Maxx', logo: `${UP}/tkmaxx.jpg` },
+  { name: 'Western Union', logo: `${UP}/westernunionwu.jpg` },
+  { name: 'Alinta Energy', logo: `${UP}/alintaenergy.jpg` },
+  { name: 'Jax Tyres', logo: `${UP}/jaxtyres.jpg` },
+  { name: 'Fujitsu', logo: `${UP}/fujitsu.jpg` },
+  { name: 'Pandora', logo: `${UP}/pandora.jpg` },
+  { name: 'Harley-Davidson', logo: `${UP}/moto-harley-davidson.jpg` },
+  { name: 'Apple', logo: `${UP}/apple.jpg` },
+  { name: 'Petbarn', logo: `${UP}/petbarn.jpg` },
+  { name: 'Coates Hire', logo: `${UP}/coateshire.jpg` },
+  { name: 'Crust Pizza', logo: `${UP}/crust.jpg` },
+  { name: 'TAFE NSW', logo: `${UP}/tafe.jpg` },
 ];
 
-export const certifications = ['Google Partner', 'Google Analytics Certified', 'Bing Ads', 'Unbounce'];
+export const certifications = [
+  { name: 'Google Partner', logo: `${UP}/google-partner.jpg` },
+  { name: 'Unbounce', logo: `${UP}/unbounce.jpg` },
+];
 
-export const featuredOn = ['Cloudways', 'Startcon', 'Growth', 'Quora', 'The Scott King Show', 'Mumbrella', 'Aeona', 'Big Digital Adelaide'];
+export const featuredOn = [
+  { name: 'Cloudways', logo: `${UP}/cloudways.jpg` },
+  { name: 'Startcon', logo: `${UP}/startcon.jpg` },
+  { name: 'Growth Hacking Australia', logo: `${UP}/growth.jpg` },
+  { name: 'Quora', logo: `${UP}/quora.jpg` },
+  { name: 'The Scott King Show', logo: `${UP}/the-scott-king-show.jpg` },
+];
+
+export const aboutBanner = `${UP.replace('2019/06', '2019/07')}/about-us-banner.jpg`;
+export const founderPhoto = `${UP.replace('2019/06', '2019/07')}/about-esteban-martinez.jpg`;
 
 export const howItWorks = [
   {
