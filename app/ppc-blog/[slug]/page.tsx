@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import BlogCard from '@/components/BlogCard';
 import { formatDate, getAllSlugs, getPostBySlug, getRelatedPosts } from '@/lib/posts';
+/* eslint-disable @next/next/no-img-element */
 
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -54,13 +54,11 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         {post.thumbnail && (
           <div className="container-page -mt-10 md:-mt-14 relative z-10 max-w-4xl">
             <div className="relative aspect-[16/9] rounded-2xl overflow-hidden shadow-xl">
-              <Image
+              <img
                 src={post.thumbnail}
                 alt={post.title}
-                fill
-                priority
-                sizes="(min-width: 1024px) 900px, 100vw"
-                className="object-cover"
+                loading="eager"
+                className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
           </div>
