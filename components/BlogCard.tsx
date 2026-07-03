@@ -1,19 +1,17 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { formatDate, Post } from '@/lib/posts';
+/* eslint-disable @next/next/no-img-element */
 
 export default function BlogCard({ post, priority = false }: { post: Post; priority?: boolean }) {
   return (
     <Link href={`/ppc-blog/${post.slug}`} className="card overflow-hidden group flex flex-col">
       <div className="relative aspect-[16/10] bg-ink-soft overflow-hidden">
         {post.thumbnail && (
-          <Image
+          <img
             src={post.thumbnail}
             alt={post.title}
-            fill
-            priority={priority}
-            sizes="(min-width: 768px) 380px, 100vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            loading={priority ? 'eager' : 'lazy'}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         )}
       </div>
