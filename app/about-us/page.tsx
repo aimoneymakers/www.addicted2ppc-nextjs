@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { certifications } from '@/lib/data/site';
+import { aboutBanner, certifications, founderPhoto } from '@/lib/data/site';
+/* eslint-disable @next/next/no-img-element */
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -30,20 +31,48 @@ export default function AboutPage() {
   return (
     <>
       <section className="bg-ink text-white py-24 md:py-32">
-        <div className="container-page">
-          <p className="eyebrow mb-4">About us</p>
-          <h1 className="font-display font-bold text-4xl md:text-6xl leading-[1.05] max-w-2xl">
-            Marketers first. Media buyers second.
-          </h1>
-          <p className="mt-6 text-lg text-white/70 max-w-xl leading-relaxed">
-            With a strong focus on exceptional service and constant growth, Esteban Martinez lives and
-            breathes every part of digital marketing — and built this agency around one goal: clear,
-            transparent results you can actually see.
-          </p>
+        <div className="container-page grid md:grid-cols-2 gap-14 items-center">
+          <div>
+            <p className="eyebrow mb-4">About us</p>
+            <h1 className="font-display font-bold text-4xl md:text-6xl leading-[1.05]">
+              Marketers first. Media buyers second.
+            </h1>
+            <p className="mt-6 text-lg text-white/70 max-w-xl leading-relaxed">
+              With a strong focus on exceptional service and constant growth, Esteban Martinez lives and
+              breathes every part of digital marketing — and built this agency around one goal: clear,
+              transparent results you can actually see.
+            </p>
+          </div>
+          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+            <img
+              src={aboutBanner}
+              alt="Addicted 2 PPC"
+              className="w-full h-full object-cover"
+              loading="eager"
+            />
+          </div>
         </div>
       </section>
 
       <section className="container-page py-20 md:py-28">
+        <div className="grid md:grid-cols-[220px_1fr] gap-10 items-start mb-14">
+          <div className="relative aspect-square w-full max-w-[220px] rounded-2xl overflow-hidden">
+            <img
+              src={founderPhoto}
+              alt="Esteban Martinez, Founder of Addicted 2 PPC"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div>
+            <p className="eyebrow mb-3">Founder</p>
+            <h2 className="font-display text-2xl font-semibold">Esteban Martinez</h2>
+            <p className="text-muted mt-2 max-w-md leading-relaxed">
+              Founder of Addicted 2 PPC, previously building ecommerce experience in-house at TUI Travel.
+            </p>
+          </div>
+        </div>
+
         <p className="eyebrow mb-4">The story so far</p>
         <div className="mt-10 space-y-10">
           {timeline.map((item, i) => (
@@ -72,11 +101,11 @@ export default function AboutPage() {
           </div>
           <div className="rounded-2xl border border-white/10 p-8 bg-white/5">
             <p className="eyebrow mb-4">Certifications</p>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {certifications.map((c) => (
-                <li key={c} className="flex items-center gap-3 text-white/85">
-                  <span className="w-1.5 h-1.5 rounded-full bg-signal" />
-                  {c}
+                <li key={c.name} className="flex items-center gap-3">
+                  <img src={c.logo} alt={c.name} className="h-8 w-auto object-contain bg-white rounded px-2 py-1" loading="lazy" />
+                  <span className="text-white/85">{c.name}</span>
                 </li>
               ))}
             </ul>
